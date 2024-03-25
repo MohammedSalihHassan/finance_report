@@ -1,0 +1,360 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* finance_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-02 13:06+0000\n"
+"PO-Revision-Date: 2022-01-02 13:06+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "<strong>Date &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;: </strong>"
+msgstr ":  التاريخ"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "<strong>Invoice Date &amp;nbsp;&amp;nbsp;: </strong>"
+msgstr ":  تاريخ الفاتورة"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "<strong>Journal Number &amp;nbsp;&amp;nbsp;: </strong>"
+msgstr ":  رقم القيد"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "<strong>Reference &amp;nbsp;&amp;nbsp;: </strong>"
+msgstr ":  الرمز"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid ""
+"<strong>State \n"
+"                  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;: </strong>"
+msgstr ":  الحالة"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "<strong>User &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;: </strong>"
+msgstr ":  المستخدم"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "Account Manager"
+msgstr "مدير الحسابات"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "Account Name"
+msgstr "اسم الحساب"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "Account Number"
+msgstr "رقم الحساب"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.general_ledger_report_template
+msgid "Account:"
+msgstr "الحساب"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "Accountant"
+msgstr "المحاسب"
+
+#. module: finance_report
+#: model:ir.model.fields,field_description:finance_report.field_general_ledger_wizard__account_id
+msgid "Acount"
+msgstr "الحساب"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.general_ledger_report_template
+msgid "Amount Currency"
+msgstr "المبلغ الحالي"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.finance_tax_wizard_view
+#: model_terms:ir.ui.view,arch_db:finance_report.general_ledger_wizard_view
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: finance_report
+#: model:ir.model.fields,field_description:finance_report.field_finance_tax_wizard__create_uid
+#: model:ir.model.fields,field_description:finance_report.field_general_ledger_wizard__create_uid
+msgid "Created by"
+msgstr "انشاء بواسطة"
+
+#. module: finance_report
+#: model:ir.model.fields,field_description:finance_report.field_finance_tax_wizard__create_date
+#: model:ir.model.fields,field_description:finance_report.field_general_ledger_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.general_ledger_report_template
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "Credit"
+msgstr "دائن"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.common_custom_header_footer
+msgid "Custom Header..."
+msgstr ""
+
+#. module: finance_report
+#: model:ir.model.fields.selection,name:finance_report.selection__finance_tax_wizard__move_type__out_refund
+msgid "Customer Credit Note"
+msgstr "ملحوظة"
+
+#. module: finance_report
+#: model:ir.model.fields.selection,name:finance_report.selection__finance_tax_wizard__move_type__out_invoice
+msgid "Customer Invoice"
+msgstr "فاتورة العميل "
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.general_ledger_report_template
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "Debit"
+msgstr "مدين"
+
+#. module: finance_report
+#: model:ir.model.fields,field_description:finance_report.field_finance_tax_wizard__display_name
+#: model:ir.model.fields,field_description:finance_report.field_general_ledger_wizard__display_name
+#: model:ir.model.fields,field_description:finance_report.field_report_finance_report_root_account_move_line_template__display_name
+#: model:ir.model.fields,field_description:finance_report.field_report_finance_report_root_general_ledger_report_template__display_name
+msgid "Display Name"
+msgstr "عرض الاسم"
+
+#. module: finance_report
+#: model:ir.model.fields,field_description:finance_report.field_finance_tax_wizard__end_date
+#: model:ir.model.fields,field_description:finance_report.field_general_ledger_wizard__end_date
+msgid "End Date"
+msgstr "تاريخالنهاية"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "Financial Manager"
+msgstr "المدير المالي"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.general_ledger_report_template
+msgid "General Ledger"
+msgstr "دفتر الأستاذ العام"
+
+#. module: finance_report
+#: model:ir.actions.act_window,name:finance_report.action_general_ledger_wizard_view
+#: model:ir.ui.menu,name:finance_report.menu_general_ledger_report_wizard
+msgid "General Ledger Report"
+msgstr "تقرير حساب الاستاذ العام"
+
+#. module: finance_report
+#: model:ir.actions.report,name:finance_report.action_report_finance_general_ledger
+#: model:ir.model,name:finance_report.model_general_ledger_wizard
+msgid "General Ledger report"
+msgstr "تقرير حساب الاستاذ العام"
+
+#. module: finance_report
+#: model:ir.model.fields,field_description:finance_report.field_finance_tax_wizard__id
+#: model:ir.model.fields,field_description:finance_report.field_general_ledger_wizard__id
+#: model:ir.model.fields,field_description:finance_report.field_report_finance_report_root_account_move_line_template__id
+#: model:ir.model.fields,field_description:finance_report.field_report_finance_report_root_general_ledger_report_template__id
+msgid "ID"
+msgstr ""
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.account_move_line_template
+msgid "Invoice Amount"
+msgstr "قيمة الفاتورة"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.account_move_line_template
+msgid "Invoice Date"
+msgstr "تاريخ الفاتورة"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.account_move_line_template
+msgid "Invoice Number"
+msgstr "رقم الفاتورة"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.account_move_line_template
+msgid "Item"
+msgstr "المواد"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.general_ledger_report_template
+msgid "Journal Date"
+msgstr "تاريخ دفتر اليومية"
+
+#. module: finance_report
+#: model:ir.actions.report,name:finance_report.journal_entries_report_action
+msgid "Journal Entries Report"
+msgstr "تقرير دفتر اليومية"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.general_ledger_report_template
+msgid "Journal Number"
+msgstr "رقم دفتر اليومية"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.general_ledger_report_template
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "Label"
+msgstr "الاسم"
+
+#. module: finance_report
+#: model:ir.model.fields,field_description:finance_report.field_finance_tax_wizard____last_update
+#: model:ir.model.fields,field_description:finance_report.field_general_ledger_wizard____last_update
+#: model:ir.model.fields,field_description:finance_report.field_report_finance_report_root_account_move_line_template____last_update
+#: model:ir.model.fields,field_description:finance_report.field_report_finance_report_root_general_ledger_report_template____last_update
+msgid "Last Modified on"
+msgstr "اخر تعديل"
+
+#. module: finance_report
+#: model:ir.model.fields,field_description:finance_report.field_finance_tax_wizard__write_uid
+#: model:ir.model.fields,field_description:finance_report.field_general_ledger_wizard__write_uid
+msgid "Last Updated by"
+msgstr "اخر تعديل بواسطة"
+
+#. module: finance_report
+#: model:ir.model.fields,field_description:finance_report.field_finance_tax_wizard__write_date
+#: model:ir.model.fields,field_description:finance_report.field_general_ledger_wizard__write_date
+msgid "Last Updated on"
+msgstr "اخر تعديل في"
+
+#. module: finance_report
+#: model:ir.model.fields,field_description:finance_report.field_finance_tax_wizard__move_type
+msgid "Move Type"
+msgstr "نوع الحركة"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.common_custom_header_footer
+#: model_terms:ir.ui.view,arch_db:finance_report.main_header_footer
+msgid "Page:"
+msgstr "الصفحة"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.account_move_line_template
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "Partner"
+msgstr "عميل"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.finance_tax_wizard_view
+#: model_terms:ir.ui.view,arch_db:finance_report.general_ledger_wizard_view
+msgid "Print"
+msgstr "طباعة"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.account_move_line_template
+msgid "Quantity"
+msgstr "العدد"
+
+#. module: finance_report
+#: model:ir.model.fields,field_description:finance_report.field_finance_tax_wizard__start_date
+#: model:ir.model.fields,field_description:finance_report.field_general_ledger_wizard__start_date
+msgid "Start Date"
+msgstr "تاريخ البداية"
+
+#. module: finance_report
+#: model:ir.ui.menu,name:finance_report.menu_tax_report_wizard
+#: model_terms:ir.ui.view,arch_db:finance_report.account_move_line_template
+msgid "Taxes Report"
+msgstr "تقرير الضرائب"
+
+#. module: finance_report
+#: model:ir.model,name:finance_report.model_finance_tax_wizard
+msgid "Taxes report"
+msgstr "تقرير الضرائب"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "The Auditor"
+msgstr "المراجع"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.common_custom_header_footer
+msgid "Time :"
+msgstr "الرمن:"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.account_move_line_template
+#: model_terms:ir.ui.view,arch_db:finance_report.general_ledger_report_template
+#: model_terms:ir.ui.view,arch_db:finance_report.journal_entries_template
+msgid "Total"
+msgstr "المجموع"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.account_move_line_template
+msgid "Total Amount"
+msgstr "المبلغ الاجمالي"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.account_move_line_template
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.account_move_line_template
+msgid "VAT Amount"
+msgstr "قيمة الضريبة"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.account_move_line_template
+msgid "VAT Number"
+msgstr "الرقم الضريبي"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.account_move_line_template
+msgid "VAT%"
+msgstr "الضريبة%"
+
+#. module: finance_report
+#: model:ir.model.fields.selection,name:finance_report.selection__finance_tax_wizard__move_type__in_invoice
+msgid "Vendor Bill"
+msgstr "فاتورة مورد"
+
+#. module: finance_report
+#: model:ir.model.fields.selection,name:finance_report.selection__finance_tax_wizard__move_type__in_refund
+msgid "Vendor Credit Note"
+msgstr "اشعار المورد"
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.general_ledger_report_template
+msgid "end date:"
+msgstr "تاريخ النهاية"
+
+#. module: finance_report
+#: model:ir.model,name:finance_report.model_report_finance_report_root_account_move_line_template
+msgid "report.finance_report.root_account_move_line_template"
+msgstr ""
+
+#. module: finance_report
+#: model:ir.model,name:finance_report.model_report_finance_report_root_general_ledger_report_template
+msgid "report.finance_report.root_general_ledger_report_template"
+msgstr ""
+
+#. module: finance_report
+#: model_terms:ir.ui.view,arch_db:finance_report.general_ledger_report_template
+msgid "start date:"
+msgstr "تاريخ البداية"
+
+#. module: finance_report
+#: model:ir.actions.act_window,name:finance_report.action_finance_tax_wizard_view
+msgid "tax report wizard view"
+msgstr ""
+
+#. module: finance_report
+#: model:ir.actions.report,name:finance_report.action_report_finance_tax
+msgid "taxes report"
+msgstr "فاتورة ضرائب"

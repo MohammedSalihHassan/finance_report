@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+  
+    	<!-- Paper Format -->
+		 <record id="custom_paper_format" model='report.paperformat'> 
+			<field name="name">Common Paper Format</field>
+			<field name="format">A4</field>
+			<field name="orientation">Landscape</field> <!-- Portrait is default-->
+			<field name="margin_top">40</field>
+			<field name="margin_bottom">23</field>
+			<field name="margin_left">7</field>
+			<field name="margin_right">7</field>
+			<field name="dpi">90</field>
+			<field name="header_spacing">35</field>	
+		</record> 
+		
+    	<!-- Action of journal entries Report -->
+		<report id="journal_entries_report_action"
+			    model="account.move"
+		        name="finance_report.root_journal_entries_template"
+		        report_type="qweb-pdf"
+		        string="Journal Entries Report" 
+		        />
+
+
+		    <!-- tax invoice report action  -->
+        <record id="action_tax_invoice_report" model="ir.actions.report">
+            <field name="name"> Tax Invoice - فاتورة ضريبية</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">finance_report.account_move_report</field>
+            <field name="report_file">finance_report.account_move_report</field>
+            <field name="print_report_name">'Invoice - %s' % (object.name).replace('/', '')</field>
+            <field name="binding_model_id" ref="model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+		<record id="action_report_finance_tax"
+		 	model="ir.actions.report">
+		 	<field name="paperformat_id" ref="finance_report.custom_paper_format"/>
+			<field name="name">taxes report</field>
+			<field name="model">finance.tax.wizard</field>
+			<field name="report_type">qweb-pdf</field>
+			<field name="report_name">finance_report.root_account_move_line_template</field>
+			<field name="report_file">finance_report.root_account_move_line_template</field>
+			<field name="binding_model_id" ref="model_finance_tax_wizard"/>
+			<field name="binding_type">report</field>
+		</record>
+		         
+		<record id="action_report_finance_general_ledger"
+		 	model="ir.actions.report">
+			<field name="name">General Ledger report</field>
+			<field name="model">finance.tax.wizard</field>
+			<field name="report_type">qweb-pdf</field>
+			<field name="report_name">finance_report.root_general_ledger_report_template</field>
+			<field name="report_file">finance_report.root_general_ledger_report_template</field>
+			<field name="binding_model_id" ref="model_general_ledger_wizard"/>
+			<field name="binding_type">report</field>
+		</record>
+
+
+
+			<!-- custom Purchase order report action  -->
+        <record id="action_custom_purcase_order_report" model="ir.actions.report">
+            <field name="name"> Custom Purchase Order</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">finance_report.root_custom_purchase_order_report_template</field>
+            <field name="report_file">finance_report.root_custom_purchase_order_report_template</field>
+            <field name="print_report_name">'Purchase order - %s' % (object.name).replace('/', '')</field>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+		  
+</odoo>

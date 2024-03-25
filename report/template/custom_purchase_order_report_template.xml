@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+  <template id="root_custom_purchase_order_report_template">
+    <t t-call="web.html_container"> 
+      <t t-foreach="docs" t-as="purchase">
+        <t t-call="finance_report.common_custom_header_footer"/>
+        <t t-call="finance_report.custom_purchase_order_report_template"/>
+      </t>
+    </t>
+  </template>
+
+    <template id="custom_purchase_order_report_template">
+        <t t-call="web.external_layout">
+          <h4> PURCHASE ORDER</h4>
+          <hr/>
+          <div class="row border border-top-0" style="font-size: 8pt;">
+            <t t-set="company" t-value="user.company_id"/>
+            <div class="col-4 border border-top-0 text-left">
+              <div>P.O Number : <span t-field="purchase.name"/></div>
+              <div>P.O Date : <span t-field="purchase.date_order"/></div>
+              <div>Contact Person : <span t-field="purchase.user_id.name"/></div>
+              <div>Contact Email : <span t-field="purchase.user_id.work_email"/></div>
+            </div>
+
+            <div class="col-4 border border-top-0 text-left">
+              <strong> TO VENDOR </strong>
+              <div t-field="purchase.partner_id"
+                t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+
+              <p t-if="purchase.partner_id.vat">
+                <t t-esc="purchase.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="purchase.partner_id.vat"/>
+              </p>
+
+               <div>Vender VAT Reg No : <span t-field="purchase.partner_id.vat"/></div>
+               <div>Vender Reference : <span t-field="purchase.partner_ref"/></div>
+
+               <div>Vender Quote Ref : <span t-field="purchase.vendor_quote_ref"/></div>
+               <div>Vender Quote Date : <span t-field="purchase.vendor_quote_date"/></div>
+            </div>
+            <div class="col-4 border border-top-0 text-left">
+             <strong> DELIVERY TO </strong>
+             <div t-field="company.partner_id"
+                t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+
+              <div>Project  : <span t-field="purchase.project"/></div>
+              <div>Delivery Date  : <span t-field="purchase.date_planned"/></div>
+            </div>
+          </div>
+          <div class="row p-1 my-2 border-bottom" >
+            <div class="col-6 text-left" style="background-color:#BBBBBB;">
+              <span> Terms And Conditions</span>
+            </div>
+          </div>
+          <div class="row my-1" style="font-size: 8pt;">
+            <div class="col-12">
+              <span> a) Payment Method - <span t-field="purchase.payment_method"/></span>
+            </div>
+          </div>
+          <div class="row my-1" style="font-size: 8pt;">
+            <div class="col-12">
+              <span> b) Payment Terms - <span t-field="purchase.payment_term_id"/></span>
+            </div>
+          </div>
+          <div class="row my-1" style="font-size: 8pt;">
+            <div class="col-12">
+              <span> c) All invoices should have VAT Registration Number of the vendor, if Vat charged on the invoice</span>
+            </div>
+          </div>
+            <div class="row my-1" style="font-size: 8pt;">
+              <div class="col-12">
+                <span> d) All invoices shall be addressed to "<span t-field="company.name"/>" 
+                </span>
+              </div>
+          </div>
+          <div class="page" style="font-size: 8pt;">      
+                <t t-set="i" t-value="1" />  
+                <table class="table table-bordered">
+                    <tr style="font-size:8px;border-color: black;background-color:#BBBBBB;
+                      ">
+                      <th style="width:5%;border-color: black;">#</th>
+                      <th class="text-left" style="border-color: black;">
+                        <smal style="font-size: 8pt;">P / N</smal>
+                      </th>
+                      <th style="border-color: black;">
+                        <smal style="font-size: 8pt;">Description</smal>
+                      </th>
+                      <th style="border-color: black;">Qty</th>
+                      <th style="border-color: black;">Unit</th>
+                      <th style="border-color: black;">Unit Rate</th>
+                      <th style="width:5%; border-color: black;">Amount</th>
+                    </tr>
+
+                  <tbody>
+                    <t t-foreach="purchase.order_line" t-as="order"> 
+                        <tr style="border-color: black;">
+                          <td class="text-center" style="width:5%; border-color: black;">
+                            <span t-esc="i"/> 
+                            <t t-set="i" t-value="i+1"/> 
+                          </td>
+                          <td class="text-left" style="border-color: black;"> 
+                            <span t-field="order.product_id.name"/>
+                          </td>
+                          <td style="border-color: black;"> <span t-field="order.name"/></td>
+                          <td style="border-color: black;"> <span t-field="order.product_qty"/> </td>
+                          <td style="border-color: black;"> <span t-field="order.product_uom"/></td>
+                          <td style="border-color: black;"> <span t-field="order.price_unit"/></td>
+                          <td style="width:5%; border-color: black;"> 
+                            <span t-field="order.price_subtotal"/>
+                          </td>
+                        </tr>
+                    </t> 
+                  </tbody>
+                </table> 
+          </div>
+          <div class="row my-1" style="font-size: 8pt;">
+            <div class="col-6">
+              <span></span>
+            </div>
+            <div class="col-6">
+              <div class="row border border-top-0">
+                <div class="col-5"><span> GRAND TOTAL </span>
+                </div>
+                <div class="col-7">
+                  <span t-field="purchase.amount_untaxed"/>
+                </div>
+              </div>
+
+              <div class="row border border-top-0">
+                <div class="col-5"><span> DISCOUNT </span>
+                </div>
+                <div class="col-7">
+                  <span t-field="purchase.discount"/>
+                </div>
+              </div>
+
+              <div class="row border border-top-0">
+                <div class="col-5"><span> AMOUNT WITH DISCOUNT </span>
+                </div>
+                <div class="col-7">
+                  <span t-field="purchase.total_with_discount"/>
+                </div>
+              </div>
+
+              <div class="row border border-top-0">
+                <div class="col-5"><span> VAT AMOUNT </span>
+                </div>
+                <div class="col-7">
+                  <span t-field="purchase.amount_tax"/>
+                </div>
+              </div>
+
+              <div class="row border border-top-0">
+                <div class="col-5">
+                  <span> TOTAL </span>
+                </div>
+                <div class="col-7">
+                  <t t-set="total" t-value="purchase.amount_total - purchase.discount"/>
+                  <t t-esc="total"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row p-1 my-2 border-bottom" >
+            <div class="col-6 text-left" style="background-color:#BBBBBB;">
+              <span> General Terms And Conditions</span>
+            </div>
+          </div>
+          <div class="row" style="font-size: 8pt;">
+            <div class="col-12">
+              a) Soft copy of invoice to be send to Alia ICT in the same day of delivery materials or service, and hard copy of invoice to be send within 7 days from the delivery date to finance department
+            </div>
+          </div>
+          <div class="row" style="font-size: 8pt;">
+            <div class="col-12">
+              b) All shipping documents must notify "<span t-field="company.name"/>" unless otherwise is mentioned.
+            </div>
+          </div>
+          <div class="row" style="font-size: 8pt;">
+            <div class="col-12">
+              c) Original shipping documents to be submitted along with the commercial invoice for payment purpose
+            </div>
+          </div>
+          <div class="row" style="font-size: 8pt;">
+            <div class="col-12">
+              d) Order confirmation to be received within 24 hours from the P.O date otherwise will be considered as cancelled 
+            </div>
+          </div>
+          <div class="row" style="font-size: 8pt;">
+            <div class="col-12">
+              e) Payment will be based on actual quantities as per the above table
+            </div>
+          </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+  <template id="root_account_move_line_template">
+    <t t-call="web.html_container"> 
+      <t t-call="finance_report.account_move_line_template"/>
+    </t>
+  </template>
+
+    <template id="account_move_line_template">
+        <t t-call="web.external_layout">
+          <link rel="stylesheet" href="/finance_report/static/src/css/style.css"/>
+          <h4> Taxes Report</h4>
+          <div class="page" style="font-size: 8pt;">      
+                <t t-set="i" t-value="1" />  
+                <table class="table table-bordered">
+                  <thead>
+                    <tr style="text-color:#00FFF;">
+                      <th style="width:5%;">#</th>
+                      <th class="text-left"><smal style="font-size: 8pt;">Invoice Date</smal></th>
+                      <th><smal style="font-size: 8pt;">Invoice Number</smal></th>
+                      <th>Item</th>
+                      <th>Partner</th>
+                      <th>VAT Number</th>
+                      <th style="width:5%;">Quantity</th>
+                      <th>Unit Price</th>
+                      <th>Invoice Amount</th>
+                      <th>VAT%</th>
+                      <th>VAT Amount</th>
+                      <th>Total Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <t t-foreach="docs" t-as="tax"> 
+                      <t t-if="tax.product_id">
+                        <tr>
+                          <td class="text-center" style="width:5%;">
+                            <span t-esc="i"/> 
+                            <t t-set="i" t-value="i+1"/> 
+                          </td>
+                          <td class="text-left"> 
+                            <span t-field="tax.date"/>
+                          </td>
+                          <td> <span t-field="tax.move_id"/></td>
+                          <td style="font-size: 8pt;"> <span t-field="tax.product_id"/></td>
+                          <td> <span t-field="tax.partner_id"/></td>
+                          <td> <span t-field="tax.partner_id.vat"/></td>
+                          <td style="width:5%;"> <span t-field="tax.quantity"/></td>
+                          <td> <span t-field="tax.price_unit"/></td>
+                          <td> <span t-field="tax.price_subtotal"/></td>
+                          <td> <span t-field="tax.tax_ids"/></td>
+                          <t t-set="vat" t-value="tax.price_total - tax.price_subtotal"/>
+                          <td> <t t-esc="vat"/></td>
+                          <td> <span t-field="tax.price_total"/></td>
+                        </tr>
+                      </t>
+                    </t> 
+                    <tr> 
+                      <t t-if="docs['product_id']">
+                        <td  t-att-colspan="6">Total </td>
+                        <td>
+                          <span t-esc="sum(line.quantity for line in docs)"/>
+                        </td>
+                        <td>
+                          <span t-esc="sum(line.price_unit for line in docs)"/>
+                        </td>
+                        <td>
+                          <span t-esc="sum(line.price_subtotal for line in docs)"/>
+                        </td>
+                        <td></td>
+                        <t t-set="vat" t-value="sum(line.price_total for line in docs) - sum(line.price_subtotal for line in docs)"/>
+                        <td>
+                          <t t-esc="vat"/>
+                        </td>
+                          
+                        <td>
+                          <span t-esc="sum(line.price_total for line in docs)"/>
+                        </td>
+                      </t>
+                    </tr>
+                  </tbody>
+                </table> 
+          </div>
+        </t>
+    </template>
+</odoo>

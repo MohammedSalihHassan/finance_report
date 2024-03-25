@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+  <template id="root_journal_entries_template">
+    <t t-call="web.html_container"> 
+      <t t-foreach="docs" t-as="journal">
+        <t t-call="finance_report.common_custom_header_footer"/>
+        <t t-call="finance_report.journal_entries_template"/>
+      </t>
+    </t>
+  </template>
+
+    <template id="journal_entries_template">
+        <t t-call="web.external_layout">
+          <t t-call="finance_report.common_custom_header_footer"/>
+          <div class="page">
+            <div class="row" style="font-size: 10px;">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-2">Journal Number</div> 
+                  <div class="col-1">:</div>
+                  <div class="col-9">
+                    <span t-field="journal.name"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-2">Invoice Date</div>
+                  <div class="col-1">:</div>
+                  <div class="col-9">
+                    <span t-field="journal.invoice_date"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-2">State</div>
+                  <div class="col-1">:</div>
+                  <div class="col-9">
+                    <span t-field="journal.state"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-2">User</div>
+                  <div class="col-1">:</div>
+                  <div class="col-9">
+                    <span t-field="journal.user_id"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-2">Date</div>
+                  <div class="col-1">:</div>
+                  <div class="col-9">
+                    <span t-field="journal.date"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3">Reference</div>
+                  <div class="col-1">:</div>
+                  <div class="col-8">
+                    <span t-field="journal.ref"/>
+                  </div>
+                </div>
+              </div>
+            </div>   
+                <t t-set="i" t-value="1" />  
+                <table class="table table-bordered" style="font-size: 8px; border-color: black;">
+                    <tr style="background-color:#BBBBBB;">
+                      <th class="text-center" style="width: 5%" >#</th>
+                      <th class="text-center">Account Number</th>
+                      <th class="text-center">Account Name</th>
+                      <th class="text-center">Partner</th>
+                      <th class="text-center">Label</th>
+                      <th class="text-center">Debit</th>
+                      <th class="text-center">Credit</th>
+                    </tr>
+                  
+                    <t t-foreach="journal.line_ids" t-as="line">
+                      <tr>
+                        <td class="text-center" style="width: 5%">
+                          <span t-esc="i"/> 
+                          <t t-set="i" t-value="i+1"/> 
+                        </td>
+                        <td> <span t-field="line.account_id.code"/></td>
+                        <td> <span t-field="line.account_id.name"/></td>
+                        <td> <span t-field="line.partner_id"/></td>
+                        <td> <span t-field="line.name"/></td>
+                        <td> <span t-field="line.debit"/></td>
+                        <td> <span t-field="line.credit"/></td>
+
+                      </tr>
+                    </t>
+                    <tr> 
+                      <td  t-att-colspan="5">Total </td>
+                      <td>
+                        <span t-esc="sum(line.debit for line in journal.line_ids)"/>
+                      </td>
+                      <td>
+                        <span t-esc="sum(line.credit for line in journal.line_ids)"/>
+                      </td>
+                    </tr>
+                </table> 
+                <br/><br/>
+
+                <div style="page-break-inside: auto; font-size: 8px;">
+                  <table class="table table-sm">
+                    <tr>
+                      <td>Accountant</td>
+                      <td>The Auditor</td>
+                      <td>Account Manager</td> 
+                      <td>Financial Manager</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </table>
+                </div>
+          </div>
+        </t>
+    </template>
+</odoo>

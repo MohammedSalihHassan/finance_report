@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+  <template id="root_general_ledger_report_template">
+    <t t-call="web.html_container"> 
+      <t t-call="finance_report.general_ledger_report_template"/>
+    </t>
+  </template>
+
+    <template id="general_ledger_report_template">
+        <t t-call="web.external_layout">
+          <h4> General Ledger</h4>
+          <div> 
+            <table border="0">
+              <tr>
+                <td t-att-colspan="3">Account:</td>
+                <td><span t-esc="account_id"/></td>
+              </tr>
+              <tr>
+                <td>start date:</td>
+                <td><span t-esc="start_date"/></td>
+                <td> end date:</td>
+                <td><span t-esc="end_date"/></td>
+              </tr>
+            </table>
+          </div>
+          <div class="page" style="font-size: 8pt;">      
+                <t t-set="i" t-value="1" />  
+                <table class="table table-bordered">
+                  <thead>
+                    <tr style="text-color:#00FFF;">
+                      <th style="width:5%;">#</th>
+                      <th class="text-left">
+                        <smal style="font-size: 8pt;">Journal Number</smal>
+                      </th>
+                      <th>
+                        <smal style="font-size: 8pt;">Journal Date</smal>
+                      </th>
+                      <th>Label</th>
+                      <th>Debit</th>
+                      <th>Credit</th>
+                      <th style="width:5%;">Amount Currency</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <t t-foreach="docs" t-as="journal"> 
+                        <tr>
+                          <td class="text-center" style="width:5%;">
+                            <span t-esc="i"/> 
+                            <t t-set="i" t-value="i+1"/> 
+                          </td>
+                          <td class="text-left"> 
+                            <span t-field="journal.move_id"/></td>
+                          <td> <span t-field="journal.date"/></td>
+                          <td style="font-size: 8pt;"> 
+                            <span t-field="journal.name"/></td>
+                          <td> <span t-field="journal.debit"/></td>
+                          <td> <span t-field="journal.credit"/></td>
+                          <td style="width:5%;"> <span t-field="journal.amount_currency"/></td>
+                        </tr>
+                    </t> 
+                    <tr> 
+                        <td  t-att-colspan="4">Total </td>
+                        <td>
+                          <span t-esc="sum(line.debit for line in docs)"/>
+                        </td>
+                        <td>
+                          <span t-esc="sum(line.credit for line in docs)"/>
+                        </td>
+                        <td>
+                          <span t-esc="sum(line.amount_currency for line in docs)"/>
+                        </td>
+                    </tr>
+                  </tbody>
+                </table> 
+          </div>
+        </t>
+    </template>
+</odoo>

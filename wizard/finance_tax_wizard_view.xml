@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="finance_tax_wizard_view" model="ir.ui.view">
+        <field name="name">Finance Tax Wizard View</field>
+        <field name="model">finance.tax.wizard</field>
+        <field name="arch" type="xml">
+        	<form name="Report Options">
+                <group name="dates">
+                    <field name="start_date" />
+                    <field name="end_date" />
+                    <field name="move_type" />
+               	</group>
+                <footer>
+                    <button string="Cancel" class="oe_link" special="cancel" />
+					<button name="report_print" class="oe_highlight" type="object" string="Print"/>
+                </footer>
+        	</form>
+        </field>
+    </record>
+
+
+    <record
+        id="action_finance_tax_wizard_view"
+        model="ir.actions.act_window">
+        <field name="name">tax report wizard view</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="target">new</field>
+        <field name="res_model">finance.tax.wizard</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <menuitem action="action_finance_tax_wizard_view" 
+        id="menu_tax_report_wizard" 
+        name="Taxes Report" 
+        parent="account.menu_finance_reports" 
+        sequence="6" 
+        />
+        
+</odoo>
+
+
+
+

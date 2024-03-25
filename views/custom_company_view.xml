@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="inherit_custom_res_company_view_form">
+        <field name="name">inherit.custom.res.company.view.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <page name="general_info" position="after">
+                <page name="bank_info" string="Bank Info">
+                    <group colspan="4" col="4">
+                        <field name="a_c_name"/>
+                        <field name="bank"/>
+                        <field name="account_number"/>
+                        <field name="iban"/>
+                        <field name="swift_code"/>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+    
+</odoo>
